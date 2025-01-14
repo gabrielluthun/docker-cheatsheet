@@ -11,10 +11,10 @@ Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'au
     * [Pourquoi Docker a changé la donne ?](#pourquoi-docker-a-changé-la-donne-)
     * [Les utilisations principales de Docker](#les-utilisations-de-docker)
     * [Son impact](#son-impact)
-- [L'installation de Docker](#l-installation-de-docker)
+- [L'installation de Docker](#linstallation-de-docker)
 - [Instance vs Image vs Conteneur](#instance-vs-image-vs-conteneur)
-
 - [Docker Hub : qu'est-ce que c'est, et comment l'utiliser ?](#docker-hub)
+- [Les commandes pour les Images Docker](#les-commandes-pour-les-images-docker)
 
 Avant de commencer, il faut voir la différence entre **Bare Metal**, **VM** et **Container**.
 
@@ -165,4 +165,5 @@ Pour taguer une image, il faut utiliser la commande `docker tag`.
 Pour lier son terminal à son compte Docker Hub, il faut utiliser la commande `docker login`.
 
 Maintenant que c'est fait, passons <small>(enfin)</small> aux **commandes Docker**.
-### Les commandes pour les Images Docker
+
+### Les commandes pour les Images Docker 
