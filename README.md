@@ -14,7 +14,9 @@ Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'au
 - [L'installation de Docker](#linstallation-de-docker)
 - [Instance vs Image vs Conteneur](#instance-vs-image-vs-conteneur)
 - [Docker Hub : qu'est-ce que c'est, et comment l'utiliser ?](#docker-hub)
-- [Les commandes pour les Images Docker](#les-commandes-de-base-pour-les-images-docker)
+- [Les commandes Docker](#les-commandes-docker)
+    * [Commandes pour les conteneurs](#les-commandes-de-base-pour-les-conteneurs-docker)
+    * [Commandes pour les images](#les-commandes-de-base-pour-les-images-docker)
 
 Avant de commencer, il faut voir la différence entre **Bare Metal**, **VM** et **Container**.
 
@@ -167,33 +169,63 @@ Pour lier son terminal à son compte Docker Hub, il faut utiliser la commande `d
 Maintenant que c'est fait, passons <small>(enfin)</small> aux **commandes Docker**.
 
 ---
-## Les commandes de base pour les Images Docker 
+## Les commandes Docker 
 
-Voici les commandes essentielles pour gérer vos images Docker :
+Cette partie est dédiée aux commandes de base pour Docker.
 
-### Lister les images
+### Les commandes de base pour les conteneurs Docker
+
+#### Lancer un conteneur
+```bash
+docker run <nom_ou_id_conteneur>
+```
+Elle lance un instance d'un conteneur à partir d'une image spécifiée, et le lancera.
+
+#### Lister les conteneurs actifs
+```bash
+docker ps
+```
+Affiche les conteneurs en cours d'exécution, fournissant des informations telles que l'ID, le nom, l'image, etc.
+
+#### Lister tous les conteneurs arrêtés
+```bash
+docker ps -a
+```
+
+#### Arrêter un conteneur
+```bash
+docker stop <nom_ou_id_conteneur>
+```
+#### Supprimer un conteneur
+```bash
+docker rm <nom_ou_id_conteneur>
+```
+
+### Les commandes de base pour les images Docker
+
+#### Lister les images
 ```bash
 docker images
 ```
 
-### Supprimer une image
+#### Supprimer une image
 ```bash
 docker rmi <nom_image>
 ```
 
-### Télécharger une image
+#### Télécharger une image
 ```bash
 docker pull <nom_image>
 ```
 
-### Pousser une image
+#### Pousser une image
 ```bash
 docker push <nom_image>
 ```
 
 Certaines images poussées sur Docker Hub peuvent être **taguées**, ce qui permet de spécifier des versions ou des configurations particulières.
 
-### Pousser une image avec un tag
+#### Pousser une image avec un tag
 ```bash
 docker push <nom_image>:<tag>
 ```
