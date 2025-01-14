@@ -61,3 +61,30 @@ Docker est utilisé dans plusieurs cas d'usage :
 
 Son succès ne s'arrête pas à la résolution de problèmes de compatibilité.
 Docker a introduit une **ère nouvelle** dans le domaine de l'architecture microservices, en popularisant les bonnes pratiques de **CI/CD**.
+
+---
+### L'installation de Docker 
+
+**Note** : le propriétaire de ce repo étant sous MacOS, l'installation de Docker se fera sur MacOS.
+Mais gardez à l'esprit que le processus d'installation est similaire quelque soit l'OS.
+
+(*déso pour les utilisateurs de Windows ou Linux. <small>ou pas. 👀*)</small>
+
+
+**Donc comment installer Docker sous Mac ?**
+
+1. **Télécharger Docker Desktop** : [ici](https://www.docker.com/products/docker-desktop). 
+Vérifiez bien la version de votre MacOS, et téléchargez la version correspondante.
+Une fois téléchargé, ouvrez le fichier `.dmg` et suivez les instructions.
+
+2. **Glisser-déposer Docker dans Applications** : une fois installé, glissez-déposez Docker dans le dossier Applications.
+
+3. **Lancer Docker Desktop** : lancez Docker Desktop.
+Par sécurité, MacOS vous demandera si vous êtes sûr de vouloir ouvrir l'application. Cliquez sur `Ouvrir`.
+
+4. **Inscription** : une fois Docker Desktop ouvert, vous devrez vous inscrire pour obtenir un compte Docker si ce n'est pas déjà fait (*connexion possible via Google et GitHub)*.
+
+5. **Vérification de l'installation** : pour vérifier que Docker est bien installé, ouvrez un terminal et           tapez la commande `docker --version`. 
+Si Docker est bien installé, vous devriez voir la version de Docker s'afficher dans le terminal.
+(*Exemple : `Docker version 27.4.0, build bde2b89`*)
+
