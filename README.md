@@ -4,22 +4,20 @@ Ce document est un cheatsheet sur Docker. Il résume l'apprentissage de Docker v
 
 Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'aux utilisateurs un peu plus avancés ayant besoin d'un rappel.
 
----
 ## Sommaire
 
 - [Quelle est la différence entre Bare Metal, VM et Container ?](#quelle-est-la-différence-entre-bare-metal-vm-et-container-)
+  * Bare Metal
+  * VM (Virtual Machine)
+  * Container
+  * Tableau comparatif
 - [Qu'est-ce que Docker ?](#quest-ce-que-docker-)
   * Pourquoi Docker a changé la donne ?
   * Les utilisations principales de Docker
   * Son impact
 - [L'installation de Docker](#linstallation-de-docker)
 - [Instance vs Image vs Conteneur](#instance-vs-image-vs-conteneur)
-  * Instance
-  * Image
-  * Conteneur
 - [Docker Hub](#docker-hub)
-  * Pourquoi utiliser Docker Hub ?
-  * Comment utiliser Docker Hub ?
   * Les niveaux d'abonnement
   * Les tags Docker Hub
   * Lier son terminal à Docker Hub
@@ -30,6 +28,9 @@ Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'au
   * Différences entre `docker run` et `docker exec`
   * Surveiller et dépanner un conteneur Docker
   * Dépanner un conteneur Docker
+- [Construire une image Docker](#construire-une-image-docker)
+  * Pourquoi les débutants devraient apprendre à construire des images Docker ?
+  * Quelques exemples concrets pour les débutants
 
 ---
 Avant de commencer, il faut voir la différence entre **Bare Metal**, **VM** et **Container**.
@@ -314,3 +315,29 @@ docker restart <nom_ou_id_conteneur>
 #### Supprimer et recréer un conteneur
 ```bash
 docker rm <nom_ou_id_conteneur>
+```
+
+---
+
+## Construire une image Docker
+
+### Pourquoi les débutants devraient apprendre à construire des images Docker ?
+
+Construire des images Docker est **important** pour les débutants, car cela leur permet de :
+- **Apprendre** par la pratique 
+    - La meilleure façon d'apprendre Docker est de **pratiquer** en construisant des images
+- **Comprendre** le fonctionnement de Docker
+    - Construire des images permet de **comprendre** comment Docker fonctionne
+- **Personnaliser** les images selon leurs besoins
+    - Parce que chaque projet possède des besoins **spécifiques**, il est important de savoir comment **personnaliser** les images Docker. 
+    C'est comme si on construisait sa propre maison ou son espace de travail.
+- **Préparation** pour le monde réel 
+    - Dans le monde réel, les développeurs sont souvent amenés à **construire** des images Docker pour leurs projets.
+- **Sécurité et contrôle** 
+    - Construire ses propres images permet de **contrôler** les dépendances et de garantir la **sécurité** des applications.
+
+### Quelques exemples concrets pour les débutants
+- **Application Web simple** : construire une image Docker sur une application en Node.js garantit que l'application fonctionne de la même manière partout.
+
+- **Projet d'École ou Projet Personnel** : construire une image Docker pour un projet d'école ou personnel permet de le **partager** plus facilement.
+*(et puis ça permet d'éliminer le "Ça ne fonctionne pas sur mon PC" 😏)*
