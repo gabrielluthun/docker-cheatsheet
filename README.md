@@ -4,20 +4,34 @@ Ce document est un cheatsheet sur Docker. Il résume l'apprentissage de Docker v
 
 Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'aux utilisateurs un peu plus avancés ayant besoin d'un rappel.
 
+---
 ## Sommaire
 
 - [Quelle est la différence entre Bare Metal, VM et Container ?](#quelle-est-la-différence-entre-bare-metal-vm-et-container-)
-- [Qu'est-ce que Docker ?](#qu-est-ce-que-docker-)
-    * [Pourquoi Docker a changé la donne ?](#pourquoi-docker-a-changé-la-donne-)
-    * [Les utilisations principales de Docker](#les-utilisations-de-docker)
-    * [Son impact](#son-impact)
+- [Qu'est-ce que Docker ?](#quest-ce-que-docker-)
+  * Pourquoi Docker a changé la donne ?
+  * Les utilisations principales de Docker
+  * Son impact
 - [L'installation de Docker](#linstallation-de-docker)
 - [Instance vs Image vs Conteneur](#instance-vs-image-vs-conteneur)
-- [Docker Hub : qu'est-ce que c'est, et comment l'utiliser ?](#docker-hub)
+  * Instance
+  * Image
+  * Conteneur
+- [Docker Hub](#docker-hub)
+  * Pourquoi utiliser Docker Hub ?
+  * Comment utiliser Docker Hub ?
+  * Les niveaux d'abonnement
+  * Les tags Docker Hub
+  * Lier son terminal à Docker Hub
 - [Les commandes Docker](#les-commandes-docker)
-    * [Commandes pour les conteneurs](#les-commandes-de-base-pour-les-conteneurs-docker)
-    * [Commandes pour les images](#les-commandes-de-base-pour-les-images-docker)
+  * Les commandes de base pour les conteneurs Docker
+  * Les commandes de base pour les images Docker
+  * Exécuter des commandes à l'intérieur d'un conteneur Docker
+  * Différences entre `docker run` et `docker exec`
+  * Surveiller et dépanner un conteneur Docker
+  * Dépanner un conteneur Docker
 
+---
 Avant de commencer, il faut voir la différence entre **Bare Metal**, **VM** et **Container**.
 
 ## Quelle est la différence entre Bare Metal, VM et Container ?
@@ -187,7 +201,7 @@ docker ps
 ```
 Affiche les conteneurs en cours d'exécution, fournissant des informations telles que l'ID, le nom, l'image, etc.
 
-#### Lister tous les conteneurs arrêtés
+#### Lister tous les conteneurs, même ceux arrêtés
 ```bash
 docker ps -a
 ```
@@ -231,3 +245,66 @@ docker push <nom_image>:<tag>
 ```
 
 *Note : la commande de création d'images Docker est un peu plus avancée, c'est pourquoi elle n'est pas présente ici.*
+
+### Exécuter des commandes à l'intérieur d'un conteneur Docker
+
+#### Accéder au shell d'un conteneur Docker
+
+```bash
+docker exec -it <nom_ou_id_conteneur> sh
+```
+
+Ici, `-it` permet d'ouvrir un terminal interactif, et `sh` est le shell utilisé pour l'interaction.
+
+#### Exécuter une commande à l'intérieur d'un conteneur Docker
+
+```bash
+docker exec <nom_ou_id_conteneur> <commande>
+```
+
+### Différences entre `docker run` et `docker exec`
+
+- `docker run` : permet de **lancer** un conteneur à partir d'une image
+- `docker exec` : permet d'**exécuter** une commande à l'intérieur d'un conteneur **déjà en cours d'exécution**
+
+### Surveiller et dépanner un conteneur Docker
+
+La **surveillance** et **dépannage** des conteneurs Docker est **essentielle** pour garantir le bon fonctionnement des applications.
+
+Étapes pour sureiller un conteneur :
+
+1 : *Lister les conteneurs*
+```bash
+docker ps -a
+```
+
+2 : *Vérifier les logs d'un conteneur Docker*
+```bash
+docker logs <nom_ou_id_conteneur>
+```
+
+3 : *Vérifier les statistiques d'un conteneur Docker*
+```bash
+docker stats <nom_ou_id_conteneur>
+```
+
+### Dépanner un conteneur Docker
+
+#### Inspecter un conteneur
+```bash
+docker inspect <nom_ou_id_conteneur>
+```
+
+#### Exécution d'une commande dans un conteneur
+```bash
+docker exec -it <nom_ou_id_conteneur> <commande>
+```
+
+#### Redémarrer un conteneur
+```bash
+docker restart <nom_ou_id_conteneur>
+```
+
+#### Supprimer et recréer un conteneur
+```bash
+docker rm <nom_ou_id_conteneur>
