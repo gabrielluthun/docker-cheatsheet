@@ -14,7 +14,7 @@ Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'au
 - [L'installation de Docker](#linstallation-de-docker)
 - [Instance vs Image vs Conteneur](#instance-vs-image-vs-conteneur)
 - [Docker Hub : qu'est-ce que c'est, et comment l'utiliser ?](#docker-hub)
-- [Les commandes pour les Images Docker](#les-commandes-pour-les-images-docker)
+- [Les commandes pour les Images Docker](#les-commandes-de-base-pour-les-images-docker)
 
 Avant de commencer, il faut voir la différence entre **Bare Metal**, **VM** et **Container**.
 
