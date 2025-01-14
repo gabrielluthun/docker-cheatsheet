@@ -195,6 +195,11 @@ docker run <nom_ou_id_conteneur>
 ```
 Elle lance un instance d'un conteneur à partir d'une image spécifiée, et le lancera.
 
+#### Lancer un conteneur sans bloquer le terminal
+```bash
+docker run -d <nom_ou_id_conteneur>
+```
+
 #### Lister les conteneurs actifs
 ```bash
 docker ps
@@ -205,6 +210,7 @@ Affiche les conteneurs en cours d'exécution, fournissant des informations telle
 ```bash
 docker ps -a
 ```
+
 
 #### Arrêter un conteneur
 ```bash
