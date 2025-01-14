@@ -2,7 +2,21 @@
 
 Ce document est un cheatsheet sur Docker. Il résume l'apprentissage de Docker via un repo de référence.
 
-Avant de commencer, il faut voir la différence entre Bare Metal, VM et Container.
+Ce cheatsheet est accessible aussi bien aux non-initiés partant de zéro, qu'aux utilisateurs un peu plus avancés ayant besoin d'un rappel.
+
+## Sommaire
+
+- [Quelle est la différence entre Bare Metal, VM et Container ?](#quelle-est-la-différence-entre-bare-metal-vm-et-container-)
+- [Qu'est-ce que Docker ?](#qu-est-ce-que-docker-)
+    * [Pourquoi Docker a changé la donne ?](#pourquoi-docker-a-changé-la-donne-)
+    * [Les utilisations principales de Docker](#les-utilisations-de-docker)
+    * [Son impact](#son-impact)
+- [L'installation de Docker](#l-installation-de-docker)
+- [Instance vs Image vs Conteneur](#instance-vs-image-vs-conteneur)
+
+- [Docker Hub : qu'est-ce que c'est, et comment l'utiliser ?](#docker-hub)
+
+Avant de commencer, il faut voir la différence entre **Bare Metal**, **VM** et **Container**.
 
 ## Quelle est la différence entre Bare Metal, VM et Container ?
 
@@ -42,18 +56,18 @@ Docker est né en **2013** par la société dotCloud.
 Le problème était le suivant : les développeurs exerçaient sur leur machine, et les applications ne fonctionnaient **pas** sur les serveurs de production.
 
 ### Pourquoi Docker a changé la donne ? 
-
-5 raisons principales :
+4 raisons principales :
 - **Isolation** : chaque conteneur fonctionne de façon isolée -> moins de conflits entre les applications + meilleure sécurité
 - **Portabilité** : les conteneurs sont **légers** et **portables** -> peuvent être exécutés sur n'importe quel OS
 - **Efficacité** : les conteneurs partagent le **même** OS hôte -> **moins** de ressources utilisées
 - **Constance et reproduction** : Docker assure que les applications fonctionnent de la **même façon, partout**
 
-### Les utilisations de Docker
+### Les utilisations principales de Docker
 
 Docker est utilisé dans plusieurs cas d'usage :
 - **Développement d'applications** : les développeurs peuvent développer des applications sur leur machine, et les déployer sur n'importe quel serveur
-- **Microservices** : Docker est idéal pour les architectures **microservices** (découpage d'une application en plusieurs services)
+- **Microservices** : Docker est idéal pour les architectures microservices 
+*(découpage d'une application en plusieurs services)*
 - **CI/CD** : Docker est utilisé dans les pipelines CI/CD pour automatiser le déploiement d'applications
 - **Déploiement sur le cloud** : Docker est utilisé pour déployer des applications sur le cloud et est parfaitement intégré
 
@@ -91,8 +105,9 @@ Si Docker est bien installé, vous devriez voir la version de Docker s'afficher 
 6. **Pas de 6, c'est prêt !** 🎉
 
 ---
-## Conteneur vs Image 
+## Instance vs Image vs Conteneur
 
+Sous Docker, deux termes reviennent souvent : **conteneur** et **image**.
 Pour comprendre la différence, il faut d'abord aborder la notion d'instance.
 
 ### Instance
@@ -111,3 +126,43 @@ Elle ne change pas, mais selon les besoins, peut être :
 Un **conteneur** est une **instance** en temps réel d'une image. 
 Chaque conteneur est une **application exécutable** qui fonctionne à partir de son image, mais qui possède son propre espace.
 Chaque conteneur est une **application exécutable** qui fonctionne à partir de son image, mais qui possède son **propre espace**.
+
+Maintenant, parlons de registre Docker.
+Plus particulièrement, de Docker Hub.
+
+---
+
+## Docker Hub
+
+**Docker Hub** est un **registre** de conteneurs. 
+C'est une plateforme qui permet de stocker, partager et gérer des images Docker.
+
+### Pourquoi utiliser Docker Hub ?
+Les registres Docker **centralisent** un espace pour **stocker** et **partager** des images Docker, ce qui facilite la **collaboration** et le **partage** de conteneurs.
+
+La particularité de Docker Hub est qu'il est **public**. 
+Cela signifie que tout le monde peut y **accéder** et **télécharger** des images.
+
+### Comment utiliser Docker Hub ?
+
+1. **Créer un compte** : pour utiliser Docker Hub, vous devez **créer un compte**.
+2. **Se connecter** : une fois le compte créé, connectez-vous à Docker Hub.
+3. **Rechercher une image** : vous pouvez rechercher des images sur Docker Hub en utilisant la barre de recherche.
+4. **Télécharger une image** : pour télécharger une image, cliquez sur l'image souhaitée, puis sur le bouton `Pull`.
+5. **Utiliser une image** : une fois l'image téléchargée, vous pouvez l'utiliser pour créer un conteneur.
+
+### Les niveaux d'abonnement
+- **Gratuit** : pour les utilisateurs individuels, les petits projets et les tests
+- **Payant** : pour les entreprises et les organisations
+
+### Les tags Docker Hub
+Les images Docker Hub sont organisées par **tags**.
+Elles permettent de spécifier des versions, ou des configurations particulières d'un image.
+
+Pour taguer une image, il faut utiliser la commande `docker tag`.
+
+### Lier son terminal à Docker Hub
+Pour lier son terminal à son compte Docker Hub, il faut utiliser la commande `docker login`.
+
+Maintenant que c'est fait, passons <small>(enfin)</small> aux **commandes Docker**.
+### Les commandes pour les Images Docker
