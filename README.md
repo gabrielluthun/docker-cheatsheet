@@ -51,7 +51,7 @@ Il est tout à fait possible de faire tourner **plusieurs** VM sur un même hôt
 
 ### Container
 Un container est un peu comme un appartement dans un immeuble.
-C'est-à-dire que chaque apparemment possède ses propres ressources, mais **pas son propre immeuble**.
+C'est-à-dire que chaque appartement possède ses propres ressources, mais **pas son propre immeuble**.
 Concrètement, ça veut dire qu'un container possède ses **propres ressources** tout en **dépendant** du système d'exploitation de l'**hôte**.
 
 ### Tableau comparatif
