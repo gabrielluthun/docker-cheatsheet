@@ -88,3 +88,26 @@ Par sécurité, MacOS vous demandera si vous êtes sûr de vouloir ouvrir l'appl
 Si Docker est bien installé, vous devriez voir la version de Docker s'afficher dans le terminal.
 (*Exemple : `Docker version 27.4.0, build bde2b89`*)
 
+6. **Pas de 6, c'est prêt !** 🎉
+
+---
+### Conteneur vs Image 
+
+Pour comprendre la différence, il faut d'abord aborder la notion d'instance.
+
+#### Instance
+Pour expliquer ce qu'est une **instance**, prenons l'exemple de Spotify : chaque fois que vous lancez une musique au sein de la plateforme, vous écoutez une **instance** de cette chanson.
+
+Ce n'est pas la chanson originale, mais une sorte de "copie" de celle-ci.
+
+#### Image
+Une **image** est un **modèle** de conteneur. C'est-à-dire que c'est un **fichier** qui contient toutes les informations nécessaires pour créer un conteneur.
+Elle ne change pas, mais selon les besoins, peut être :
+- **transférée** (téléchargée, partagée, etc)
+- **modifiée** (par création d'une nouvelle image)
+- ou **supprimée**
+
+#### Conteneur
+Un **conteneur** est une **instance** en temps réel d'une image. 
+Chaque conteneur est une **application exécutable** qui fonctionne à partir de son image, mais qui possède son propre espace.
+Chaque conteneur est une **application exécutable** qui fonctionne à partir de son image, mais qui possède son **propre espace**.
