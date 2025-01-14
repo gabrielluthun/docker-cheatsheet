@@ -4,7 +4,7 @@ Ce document est un cheatsheet sur Docker. Il résume l'apprentissage de Docker v
 
 Avant de commencer, il faut voir la différence entre Bare Metal, VM et Container.
 
-### Quelle est la différence entre Bare Metal, VM et Container ?
+## Quelle est la différence entre Bare Metal, VM et Container ?
 
 ### Bare Metal
 
@@ -34,7 +34,7 @@ Concrètement, ça veut dire qu'un container possède ses **propres ressources**
 | **Utilisation des ressources** | Utilisation complète des ressources | Moins efficace | Très efficace et optimale | 
 
 ---
-### Qu'est-ce que Docker ? 
+## Qu'est-ce que Docker ? 
 
 Docker est une plateforme de virtualisation légère, principalement connue pour sa solution de **conteneurisation**.
 
@@ -63,7 +63,7 @@ Son succès ne s'arrête pas à la résolution de problèmes de compatibilité.
 Docker a introduit une **ère nouvelle** dans le domaine de l'architecture microservices, en popularisant les bonnes pratiques de **CI/CD**.
 
 ---
-### L'installation de Docker 
+## L'installation de Docker 
 
 **Note** : le propriétaire de ce repo étant sous MacOS, l'installation de Docker se fera sur MacOS.
 Mais gardez à l'esprit que le processus d'installation est similaire quelque soit l'OS.
@@ -91,7 +91,7 @@ Si Docker est bien installé, vous devriez voir la version de Docker s'afficher 
 6. **Pas de 6, c'est prêt !** 🎉
 
 ---
-### Conteneur vs Image 
+## Conteneur vs Image 
 
 Pour comprendre la différence, il faut d'abord aborder la notion d'instance.
 
