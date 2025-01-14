@@ -167,35 +167,35 @@ Pour lier son terminal à son compte Docker Hub, il faut utiliser la commande `d
 Maintenant que c'est fait, passons <small>(enfin)</small> aux **commandes Docker**.
 
 ---
-### Les commandes de base pour les Images Docker 
+## Les commandes de base pour les Images Docker 
 
 Voici les commandes essentielles pour gérer vos images Docker :
 
-#### Lister les images
+### Lister les images
 ```bash
 docker images
 ```
 
-#### Supprimer une image
+### Supprimer une image
 ```bash
 docker rmi <nom_image>
 ```
 
-#### Télécharger une image
+### Télécharger une image
 ```bash
 docker pull <nom_image>
 ```
 
-#### Pousser une image
+### Pousser une image
 ```bash
 docker push <nom_image>
 ```
 
 Certaines images poussées sur Docker Hub peuvent être **taguées**, ce qui permet de spécifier des versions ou des configurations particulières.
 
-#### Pousser une image avec un tag
+### Pousser une image avec un tag
 ```bash
 docker push <nom_image>:<tag>
 ```
 
-*La commande de création d'images Docker est un peu plus avancée, c'est pourquoi elle n'est pas présente ici.*
+*Note : la commande de création d'images Docker est un peu plus avancée, c'est pourquoi elle n'est pas présente ici.*
