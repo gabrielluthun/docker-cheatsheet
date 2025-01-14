@@ -9,10 +9,18 @@ Avant de commencer, il faut voir la différence entre Bare Metal, VM et Containe
 #### Bare Metal
 
 Un système dit **Bare Metal** est un système qui tourne directement sur le matériel.
-Le meilleur exemple est lors d'une ouverture d'une application ou d'un jeu sur votre ordinateur : il tourne directement dessus.
+Le meilleur exemple est lors d'une ouverture d'une application ou d'un jeu sur votre ordinateur : il tourne **directement** dessus.
 
 #### VM (Virtual Machine)
 
 Un système dit **Virtual Machine** est comme un ordinateur dans un ordinateur. 
 
- 
+Chaque VM a son propre système d'exploitation, ses propres ressources, etc, sur le **même hôte**.
+
+Il est tout à fait possible de faire tourner **plusieurs** VM sur un même hôte, ou encore un Windows en VM sur un Mac (ou inversement)...Etc
+
+
+#### Container
+Un container est un peu comme un appartement dans un immeuble.
+C'est-à-dire que chaque container a ses propres ressources, mais **pas son propre système d'exploitation**.
+Concrètement, ça veut dire qu'un container possède ses **propres ressources** tout en **dépendant** du système d'exploitation de l'**hôte**.
