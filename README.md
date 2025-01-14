@@ -19,8 +19,16 @@ Chaque VM a son propre système d'exploitation, ses propres ressources, etc, sur
 
 Il est tout à fait possible de faire tourner **plusieurs** VM sur un même hôte, ou encore un Windows en VM sur un Mac (ou inversement)...Etc
 
-
 #### Container
 Un container est un peu comme un appartement dans un immeuble.
 C'est-à-dire que chaque container a ses propres ressources, mais **pas son propre système d'exploitation**.
 Concrètement, ça veut dire qu'un container possède ses **propres ressources** tout en **dépendant** du système d'exploitation de l'**hôte**.
+
+### Tableau comparatif
+
+| Critère | Bare Metal | VM | Container |
+|---------|------------|-------|-----------|
+| **Performance** | Meilleure performance (pas de couche de virtualisation) | Bonne performance avec surcharge due à la virtualisation | Très efficace (partage du système d'exploitation hôte) |
+| **Isolation et Sécurité** | Moins d'isolation entre les applications | Excellente isolation (séparation complète) | Bonne isolation mais partage du même OS |
+| **Flexibilité et Portabilité** | Moins flexible, lié au matériel | Flexible, déplaçable entre hôtes | Très flexible, exécutable partout |
+| **Utilisation des ressources** | Utilisation complète des ressources | Moins efficace | Très efficace et optimale | 
