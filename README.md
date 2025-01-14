@@ -32,3 +32,32 @@ Concrètement, ça veut dire qu'un container possède ses **propres ressources**
 | **Isolation et Sécurité** | Moins d'isolation entre les applications | Excellente isolation (séparation complète) | Bonne isolation mais partage du même OS |
 | **Flexibilité et Portabilité** | Moins flexible, lié au matériel | Flexible, déplaçable entre hôtes | Très flexible, exécutable partout |
 | **Utilisation des ressources** | Utilisation complète des ressources | Moins efficace | Très efficace et optimale | 
+
+---
+### Qu'est-ce que Docker ? 
+
+Docker est une plateforme de virtualisation légère, principalement connue pour sa solution de **conteneurisation**.
+
+Docker est né en **2013** par la société dotCloud.
+Le problème était le suivant : les développeurs exerçaient sur leur machine, et les applications ne fonctionnaient **pas** sur les serveurs de production.
+
+#### Pourquoi Docker a changé la donne ? 
+
+5 raisons principales :
+- **Isolation** : chaque conteneur fonctionne de façon isolée -> moins de conflits entre les applications + meilleure sécurité
+- **Portabilité** : les conteneurs sont **légers** et **portables** -> peuvent être exécutés sur n'importe quel OS
+- **Efficacité** : les conteneurs partagent le **même** OS hôte -> **moins** de ressources utilisées
+- **Constance et reproduction** : Docker assure que les applications fonctionnent de la **même façon, partout**
+
+#### Les utilisations de Docker
+
+Docker est utilisé dans plusieurs cas d'usage :
+- **Développement d'applications** : les développeurs peuvent développer des applications sur leur machine, et les déployer sur n'importe quel serveur
+- **Microservices** : Docker est idéal pour les architectures **microservices** (découpage d'une application en plusieurs services)
+- **CI/CD** : Docker est utilisé dans les pipelines CI/CD pour automatiser le déploiement d'applications
+- **Déploiement sur le cloud** : Docker est utilisé pour déployer des applications sur le cloud et est parfaitement intégré
+
+#### Son impact 
+
+Son succès ne s'arrête pas à la résolution de problèmes de compatibilité.
+Docker a introduit une **ère nouvelle** dans le domaine de l'architecture microservices, en popularisant les bonnes pratiques de **CI/CD**.
