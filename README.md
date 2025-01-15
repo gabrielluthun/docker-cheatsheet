@@ -102,6 +102,24 @@ Pour créer une image -> Dockerfile
 - USER : utilisateur par défaut
 ```
 
-Format de fichier : fichier texte sans extension
+Format de fichier : fichier texte sans extension   
 Son nom : `Dockerfile`
+
+### Exemple de Dockerfile
+```bash
+# Utilise l'image officielle Nginx comme image de base
+FROM nginx:alpine
+
+# Définit le répertoire de travail dans le conteneur
+WORKDIR /usr/share/nginx/html
+
+# Copie les fichiers de l'application web statique depuis le répertoire actuel vers le répertoire de travail dans le conteneur
+COPY . .
+
+# Expose le port 80
+EXPOSE 80
+
+# Utilise la commande par défaut de l'image Nginx pour démarrer le serveur (`daemon off` permet de démarrer Nginx en premier plan)
+CMD ["nginx", "-g", "daemon off;"] 
+```
 
