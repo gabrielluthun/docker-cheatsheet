@@ -11,6 +11,10 @@
   - [Surveillance et dépannage](#surveillance-et-dépannage)
 - [Docker Hub](#docker-hub)
 - [Bonnes pratiques](#bonnes-pratiques)
+- [Création d'image](#création-dimage)
+  - [Structure Dockerfile](#structure-dockerfile)
+  - [Instruction courantes](#instruction-courantes)
+  
 
 ## Différences Bare Metal vs VM vs Container
 
@@ -77,7 +81,7 @@ Registre public d'images Docker
 - Toujours spécifier la version des images
 - Utiliser des images officielles
 - Nettoyer régulièrement les conteneurs et images inutilisés
-- Éviter les secrets dans les images
+- Souvent nettoyer les fichiers temporaires avec `docker system prune`
 
 ## Création d'image
 Pour créer une image -> Dockerfile
