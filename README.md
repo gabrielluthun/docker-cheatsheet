@@ -14,6 +14,9 @@
 - [Création d'image](#création-dimage)
   - [Structure Dockerfile](#structure-dockerfile)
   - [Instruction courantes](#instruction-courantes)
+- [Exemple de Dockerfile](#exemple-de-dockerfile)
+- [Étapes pour créer une image](#étapes-pour-créer-une-image)
+- [Optimisation des images Docker](#optimisation-des-images-docker)
   
 
 ## Différences Bare Metal vs VM vs Container
