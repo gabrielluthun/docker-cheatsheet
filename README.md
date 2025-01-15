@@ -130,3 +130,13 @@ CMD ["nginx", "-g", "daemon off;"]
 - **Mise à jour du Dockerfile** : Adapter le Dockerfile pour copier le contenu web dans l'image et exposer le bon port.
 - **Construction de l'image** : Utiliser `docker build` pour créer votre image Docker personnalisée.
 - **Exécution du conteneur** : Démarrer un conteneur à partir de votre image avec `docker run`, mappant le port approprié.
+
+---
+## Optimisation des images Docker
+
+- **Images de Base Légères** : Préférez des versions "alpine" ou "slim" pour vos images de base.
+- **Regroupement des Instructions `RUN`** : Combine les commandes avec `&&` pour réduire les couches.
+- **Nettoyage après Installation** : Supprimez les caches et fichiers temporaires après l'installation des paquets.
+- **Multi-stage Builds** : Utilisez des constructions multi-étapes pour garder l'image finale aussi légère que possible.
+- **Minimisation des Fichiers Copiés** : Employez `.dockerignore` pour exclure des fichiers inutiles de l'image.
+- **Variables d'Environnement** : Configurez l'application en utilisant des variables d'environnement pour plus de flexibilité.
