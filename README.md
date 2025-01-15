@@ -123,3 +123,10 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"] 
 ```
 
+### Étapes pour créer une image :
+
+- **Préparation** : Créer un répertoire de projet contenant un Dockerfile et un répertoire pour le contenu web.
+- **Personnalisation du contenu** : Modifier `index.html` pour afficher votre message ou contenu personnalisé.
+- **Mise à jour du Dockerfile** : Adapter le Dockerfile pour copier le contenu web dans l'image et exposer le bon port.
+- **Construction de l'image** : Utiliser `docker build` pour créer votre image Docker personnalisée.
+- **Exécution du conteneur** : Démarrer un conteneur à partir de votre image avec `docker run`, mappant le port approprié.
