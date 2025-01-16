@@ -143,3 +143,23 @@ CMD ["nginx", "-g", "daemon off;"]
 - **Multi-stage Builds** : Utilisez des constructions multi-étapes pour garder l'image finale aussi légère que possible.
 - **Minimisation des Fichiers Copiés** : Employez `.dockerignore` pour exclure des fichiers inutiles de l'image.
 - **Variables d'Environnement** : Configurez l'application en utilisant des variables d'environnement pour plus de flexibilité.
+
+---
+## Les tags dans les images Docker
+
+Utilité des tags -> assurer le **versionning** de l'image
+
+- **`<image>:<tag>`** : `<tag>` est la version de l'image
+
+### Exemple :
+`docker build -t mon-application:v1.0 .`
+
+- `mon-application` : nom de l'image
+- `v1.0` : version de l'image
+
+### Bonnes pratiques 
+- Utiliser des tags **explicites** (exemple : `v1.0`) 
+- Utiliser le **semantic versioning** pour les tags : *major.minor.patch* (exemple : `v1.0.1`)
+- Éviter la répétition de tags comme `latest` pour les images en production afin d'**éviter** les **incohérences**
+
+---
