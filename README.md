@@ -17,6 +17,7 @@
 - [Exemple de Dockerfile](#exemple-de-dockerfile)
 - [Étapes pour créer une image](#étapes-pour-créer-une-image)
 - [Optimisation des images Docker](#optimisation-des-images-docker)
+- [Les tags dans les images Docker](#les-tags-dans-les-images-docker)
   
 
 ## Différences Bare Metal vs VM vs Container
