@@ -110,22 +110,37 @@ Format de fichier : fichier texte sans extension
 Son nom : `Dockerfile`
 
 ### Exemple de Dockerfile
+
+Exemple de Dockerfile pour une application **Node.js** avec **NestJS** :
 ```bash
-# Utilise l'image officielle Nginx comme image de base
-FROM nginx:alpine
+FROM node:hydrogen-slim
 
-# Définit le répertoire de travail dans le conteneur
-WORKDIR /usr/share/nginx/html
+# Create app directory
+WORKDIR /api/
 
-# Copie les fichiers de l'application web statique depuis le répertoire actuel vers le répertoire de travail dans le conteneur
+# Copy files
 COPY . .
 
-# Expose le port 80
-EXPOSE 80
+# Install app dependencies
+RUN npm -i
 
-# Utilise la commande par défaut de l'image Nginx pour démarrer le serveur (`daemon off` permet de démarrer Nginx en premier plan)
-CMD ["nginx", "-g", "daemon off;"] 
+# Bundle app source
+EXPOSE 3000
+
+# Run the app
+CMD ["/bin/bash","-c", "npm run start"]
 ```
+- `FROM` : Définit l'image de base, ici `node:hydrogen-slim`.
+- `WORKDIR` : Définit le répertoire de travail.
+- `COPY` : Copie les fichiers de l'image de l'hôte depuis le chemin vers le chemin dans les conteneurs qui démarreront de l'image.
+  - `.` : Le dossier dans lequel se trouve le `DockerFile`.
+  - ` .` : Le chemin d'accès `/api/`.
+- `RUN npm i` : Exécute la commande `npm install`
+- `EXPOSE 3000` : Expose le port `3000` (celui de NestJS par défaut) pour permettre la communication avec l'application qui sera conteneurisé.
+- `CMD ...` : Exécute une commande avec le shell `bash` de l'image de base
+  - `"/bin/bash"` : Représente le shell à utiliser.
+  - `"-c"` : Oblige l'utilisation de `bash` au lieu de `sh`. 
+  - `npm run start` : Éxecute la commande de démarrage de l'application
 
 ### Étapes pour créer une image :
 
