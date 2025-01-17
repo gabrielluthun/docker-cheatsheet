@@ -313,3 +313,14 @@ L'exemple montre comment **monter** le répertoire courant dans le conteneur, pe
   ```
 
   *Note : `source` correspond au chemin de l'hôte et `target` au chemin du conteneur*
+
+#### 6.3.5 **Comparaison et choix**
+
+- Le choix entre **Bind Mounts** et **Volumes** dépend de l'**utilisation** et des **besoins** du projet
+- Compatibilité : Dépend de la **configuration** et des **exigences** du projet, les deux étant supportées par Docker
+
+#### 6.3.6 **Bonnes pratiques**
+
+- **Sécurité** : Limiter l'accès aux bind mounts pour **protéger** les données sensibles
+**Gestion des chemins** : Utiliser des **chemins clairs** et **faciles à comprendre** pour prévenir les conflits
+- **Combinaison avec les Volumes** : Utiliser les bind mounts pour les **données temporaires** et les volumes pour les **données persistantes**
