@@ -18,6 +18,8 @@
 - [Étapes pour créer une image](#étapes-pour-créer-une-image)
 - [Optimisation des images Docker](#optimisation-des-images-docker)
 - [Les tags dans les images Docker](#les-tags-dans-les-images-docker)
+
+---
   
 
 ## Différences Bare Metal vs VM vs Container
@@ -28,21 +30,27 @@
 | **VM** | Système virtualisé complet | Isolation totale | Ressources importantes |
 | **Container** | Virtualisation légère | Rapide et portable | Partage l'OS hôte |
 
+---
+
 ## Docker en bref
 - Plateforme de conteneurisation légère (2013)
 - Isole les applications et leurs dépendances
 - Garantit le fonctionnement identique sur tous les environnements
+
+---
 
 ## Installation rapide (MacOS)
 1. Télécharger [Docker Desktop](https://www.docker.com/products/docker-desktop)
 2. Installer et lancer l'application
 3. Vérifier l'installation : `docker --version`
 
+---
+
 ## Concepts clés
 - **Image** : Template en lecture seule
 - **Conteneur** : Instance en cours d'exécution d'une image
 - **Docker Hub** : Registre officiel d'images Docker
-
+---
 ## Commandes essentielles
 
 ### Gestion des conteneurs
@@ -72,6 +80,8 @@ docker inspect <id/nom>     # Inspecter un conteneur
 docker restart <id/nom>     # Redémarrer un conteneur
 ```
 
+---
+
 ## Docker Hub
 Registre public d'images Docker
   ```bash
@@ -86,6 +96,8 @@ Registre public d'images Docker
 - Utiliser des images officielles
 - Nettoyer régulièrement les conteneurs et images inutilisés
 - Souvent nettoyer les fichiers temporaires avec `docker system prune`
+
+---
 
 ## Création d'image
 Pour créer une image -> Dockerfile
