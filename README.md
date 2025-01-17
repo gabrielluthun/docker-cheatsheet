@@ -33,8 +33,8 @@
     6.1. [Introduction aux mécanismes de stockage dans Docker](#61-introduction-aux-mécanismes-de-stockage-dans-docker)  
     6.2. [Les Volumes Docker](#62-les-volumes-docker)   
     6.3. [Les Bind Mounts](#63-les-bind-mounts)   
-    6.4. [Les Tmpfs Mounts](#64-les-tmpfs-mounts)
-    6.5. [Principes de sécurité liés au stockage](#65-principes-de-sécurité-liés-au-stockage)
+    6.4. [Les Tmpfs Mounts](#64-les-tmpfs-mounts)   
+    6.5. [Principes de sécurité liés au stockage](#65-principes-de-sécurité-liés-au-stockage)  
     
 
 ---
@@ -334,5 +334,3 @@ chmod 700 /path/to/secure_data
 
 #### 6.5.3 Sécurité des données
 Utiliser des outils comme `dm-crypt` pour **chiffrer** les données sensibles avant de les monter dans Docker.
-
----
