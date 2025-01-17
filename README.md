@@ -279,3 +279,36 @@ du -sh <chemin-volume> # Vérifier la taille du volume
 docker volume prune # Supprimer tous les volumes inutilisés
 ```
 *Il faut d'abord s'assurer que les volumes à supprimer ne sont plus utilisés par aucun conteneur.*
+
+### 6.3. Les Bind Mounts
+
+#### 6.3.1 **Pourquoi les utiliser ?**
+- **Développement et test** : Permet de modifier le code source sans avoir à reconstruire l'image
+- **Accès direct aux données de l'hôte** : Utile pour les fichiers de configuration ou les données sensibles
+- **Persistance des données** : Les données sont stockées sur le système de fichiers de l'hôte
+
+#### 6.3.2 **Différences avec les volumes**
+- **Bind Mounts** : Montage direct du système de fichiers de l'hôte
+- **Volumes** : Gérés par Docker, stockage indépendant du système de fichiers de l'hôte
+
+#### 6.3.3 **Création et utilisation de Bind Mounts**
+```bash
+docker run -d -v <chemin-hote>:<chemin-conteneur> mon_image # Créer un conteneur avec un bind mount en utilisant le flag -v
+```
+L'exemple montre comment **monter** le répertoire courant dans le conteneur, permettant ainsi d'accéder aux fichiers de l'hôte **sans redémarrer** le conteneur. 
+
+ #### 6.3.4 Créer un bind mount
+
+ **2 méthodes pour créer un bind mount**
+
+ **Méthode 1** : en utilisant le flag `-v` lors de la création du conteneur
+ ```bash
+  docker run -d -v /chemin/hote:/chemin/conteneur mon_image
+  ```
+
+  **Méthode 2** : en utilisant le flag `--mount` lors de la création du conteneur
+  ```bash
+  docker run -d --mount type=bind,source=/chemin/hote,target=/chemin/conteneur mon_image
+  ```
+
+  *Note : `source` correspond au chemin de l'hôte et `target` au chemin du conteneur*
