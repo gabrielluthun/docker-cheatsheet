@@ -34,7 +34,8 @@
     6.2. [Les Volumes Docker](#62-les-volumes-docker)   
     6.3. [Les Bind Mounts](#63-les-bind-mounts)   
     6.4. [Les Tmpfs Mounts](#64-les-tmpfs-mounts)   
-    6.5. [Principes de sécurité liés au stockage](#65-principes-de-sécurité-liés-au-stockage)  
+    6.5. [Principes de sécurité liés au stockage](#65-principes-de-sécurité-liés-au-stockage) 
+7. [Réseautage](#7-réseautage)
     
 
 ---
@@ -334,3 +335,16 @@ chmod 700 /path/to/secure_data
 
 #### 6.5.3 Sécurité des données
 Utiliser des outils comme `dm-crypt` pour **chiffrer** les données sensibles avant de les monter dans Docker.
+
+# 7. Réseautage dans Docker
+### 7.1 Introduction au réseautage
+
+### 7.1.1 Qu'est-ce que le réseautage ?
+
+Réseautage = permet de communiquer entre eux au sein d'un meêm hôte, ou à travers différents hôtes  
+
+### 7.1.2 Pourquoi le réseautage est important ?
+
+- **Isolation** : Permet de séparer les conteneurs et les applications.
+- **Communication** : Permet de communiquer entre eux.
+- **Sécurité** : Permet de sécuriser les données.
