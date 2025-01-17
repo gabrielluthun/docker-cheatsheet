@@ -30,9 +30,11 @@
    5.2. [Bonnes pratiques de partage](#52-bonnes-pratiques-de-partage)  
 
 6. [Stockage et persistance](#6-stockage-et-persistance)  
-    6.1. [Intoduction aux mécanismes de stockage dans Docker](#61-intoduction-aux-mécanismes-de-stockage-dans-docker)  
+    6.1. [Introduction aux mécanismes de stockage dans Docker](#61-introduction-aux-mécanismes-de-stockage-dans-docker)  
     6.2. [Les Volumes Docker](#62-les-volumes-docker)   
     6.3. [Les Bind Mounts](#63-les-bind-mounts)   
+    6.4. [Les Tmpfs Mounts](#64-les-tmpfs-mounts)
+    6.5. [Principes de sécurité liés au stockage](#65-principes-de-sécurité-liés-au-stockage)
     
 
 ---
@@ -226,27 +228,23 @@ Utilité des tags -> assurer le **versionning** de l'image
 
 ## 6. Stockage et persistance
 
-### 6.1. Intoduction aux mécanismes de stockage dans Docker
+### 6.1. Introduction aux mécanismes de stockage dans Docker
+
 #### 6.1.1 Types de stockage
+- **Volumes** : Stockage persistant en dehors du système de fichiers de l'image.
+- **Bind mounts** : Lien direct vers un répertoire de l'hôte dans le conteneur.
+- **Tmpfs mounts** : Stockage temporaire en mémoire vive.
 
-- **Volumes** : Stockage persistant **en dehors** du système de fichiers de l'image *(un peu comme des disques durs externes)*
-- **Bind mounts** : Montage d'un répertoire de l'hôte dans le conteneur *(un peu comme des clés USB)*
-- **Tmpfs mounts** : Stockage en mémoire vive de données temporaires ou sensibles *(un peu comme de la RAM)*
-
-#### 6.1.2 Différence entre les volumes et les bind mounts
-
-**Volumes** : gérés par **Docker** et offrent une persistance indépendante des conteneurs 
-**Bind mounts** : sont des liens **directs** vers le système de fichiers de l'hôte, utiles pour le développement et les tests.
-
+#### 6.1.2 Différence entre volumes et bind mounts
+- **Volumes** : Gérés par Docker, indépendants des conteneurs.
+- **Bind mounts** : Dépendent du système de fichiers de l'hôte, utiles pour le développement.
 
 #### 6.1.3 Migration de données
+- **Volumes** : Faciles à sauvegarder et restaurer, moins sujettes aux pertes de données.
+- **Bind mounts** : Dépendent de l'hôte, ce qui peut entraîner des erreurs.
 
-- **Volumes** : Facile à **sauvegarder** et **restaurer**, moins sujette aux **pertes de données** et aux **erreurs**
-- **Bind mounts** : Dépendent du système de fichiers de l'hôte en raison de la **gestion intégrée** des fichiers par Docker
-
-### 6.2 Les Volumes Docker
-
-Utilisé pour **partager** des données **entre le conteneur et l'hôte**
+### 6.2. Les Volumes Docker
+Utilisés pour partager des données entre le conteneur et l'hôte.
 
 #### 6.2.1 Commandes de base
 ```bash
@@ -260,67 +258,81 @@ docker volume rm <nom-volume>      # Supprimer un volume
 ```bash
 docker run -d -v <mon_volume:/data> <mon_image> # Créer un conteneur avec un volume
 ```
-*Note : Le flag `-d` permet de lancer le conteneur en arrière-plan*
-*Le flag `-v` permet de lier un volume sur le répertoire `/data` du conteneur*
 
 #### 6.2.3 Vérifier la taille d'un volume
 ```bash
 docker volume inspect <nom-volume> # Chercher le chemin du volume
-du -sh <chemin-volume> # Vérifier la taille du volume
+du -sh <chemin-volume> # Vérifier la taille
 ```
 
-*Pour aller un peu plus loin : dans le `-sh`, `s` permet de résumer la taille totale et `h` permet de l'afficher en format lisible par un humain*
-
 #### 6.2.4 Bonnes pratiques de gestion de volumes
- - **Sécurité des données** : Chiffrer si nécessaire les données sensibles stockées dans les volumes
- - **Gestion de l'espace** : Surveiller régulièrement l'espace disque utilisé par les volumes, et supprimer les volumes inutilisés
+- **Sécurité** : Chiffrer les données sensibles.
+- **Gestion de l'espace** : Surveiller l'espace disque et supprimer les volumes inutilisés.
 
 #### 6.2.5 Nettoyage des volumes
 ```bash
 docker volume prune # Supprimer tous les volumes inutilisés
 ```
-*Il faut d'abord s'assurer que les volumes à supprimer ne sont plus utilisés par aucun conteneur.*
 
 ### 6.3. Les Bind Mounts
 
-#### 6.3.1 **Pourquoi les utiliser ?**
-- **Développement et test** : Permet de modifier le code source sans avoir à reconstruire l'image
-- **Accès direct aux données de l'hôte** : Utile pour les fichiers de configuration ou les données sensibles
-- **Persistance des données** : Les données sont stockées sur le système de fichiers de l'hôte
+#### 6.3.1 Pourquoi les utiliser ?
+- **Développement** : Modifications sans reconstruire l'image.
+- **Accès direct** : Utile pour les fichiers de configuration.
+- **Persistance** : Données stockées sur le système de fichiers de l'hôte.
 
-#### 6.3.2 **Différences avec les volumes**
-- **Bind Mounts** : Montage direct du système de fichiers de l'hôte
-- **Volumes** : Gérés par Docker, stockage indépendant du système de fichiers de l'hôte
+#### 6.3.2 Différences avec les volumes
+- **Bind Mounts** : Lien direct vers l'hôte.
+- **Volumes** : Gérés par Docker.
 
-#### 6.3.3 **Création et utilisation de Bind Mounts**
+#### 6.3.3 Création et utilisation de Bind Mounts
 ```bash
-docker run -d -v <chemin-hote>:<chemin-conteneur> mon_image # Créer un conteneur avec un bind mount en utilisant le flag -v
+docker run -d -v <chemin-hote>:<chemin-conteneur> mon_image # Créer un conteneur avec un bind mount
 ```
-L'exemple montre comment **monter** le répertoire courant dans le conteneur, permettant ainsi d'accéder aux fichiers de l'hôte **sans redémarrer** le conteneur. 
 
- #### 6.3.4 Créer un bind mount
+#### 6.3.4 Créer un bind mount
+**Méthode 1** : 
+```bash
+docker run -d -v /chemin/hote:/chemin/conteneur mon_image
+```
+**Méthode 2** : 
+```bash
+docker run -d --mount type=bind,source=/chemin/hote,target=/chemin/conteneur mon_image
+```
 
- **2 méthodes pour créer un bind mount**
+#### 6.3.5 Bonnes pratiques
+- **Sécurité** : Limiter l'accès aux bind mounts.
+- **Gestion des chemins** : Utiliser des chemins clairs pour éviter les conflits.
+- **Combinaison** : Utiliser bind mounts pour les données temporaires et volumes pour les données persistantes.
 
- **Méthode 1** : en utilisant le flag `-v` lors de la création du conteneur
- ```bash
-  docker run -d -v /chemin/hote:/chemin/conteneur mon_image
-  ```
+### 6.4. Les Tmpfs Mounts
+Permettent de monter en mémoire des données temporaires ou sensibles.
 
-  **Méthode 2** : en utilisant le flag `--mount` lors de la création du conteneur
-  ```bash
-  docker run -d --mount type=bind,source=/chemin/hote,target=/chemin/conteneur mon_image
-  ```
+#### 6.4.1 Créer un Tmpfs Mount
+```bash
+docker run -d --name mon_conteneur_temp --tmpfs /app/temp:rw,size=100m mon_image
+```
 
-  *Note : `source` correspond au chemin de l'hôte et `target` au chemin du conteneur*
+#### 6.4.2 Bonnes pratiques
+- **Surveillance de la RAM** : Éviter d'affecter les performances.
+- **Utilisation judicieuse** : Pour un accès rapide et la protection des données.
 
-#### 6.3.5 **Comparaison et choix**
+### 6.5 Principes de sécurité liés au stockage
 
-- Le choix entre **Bind Mounts** et **Volumes** dépend de l'**utilisation** et des **besoins** du projet
-- Compatibilité : Dépend de la **configuration** et des **exigences** du projet, les deux étant supportées par Docker
+#### 6.5.1 Isolation des données 
+Séparer les données sensibles.
+Par exemple, créer un volume pour **chaque** conteneur ayant des **données sensibles**.
+Comme ça, **aucun** conteneur ne peut accéder aux **données** d'un autre conteneur.
 
-#### 6.3.6 **Bonnes pratiques**
+#### 6.5.2 Contrôle d'accès
+Limiter l'accès aux **volumes** et **bind mounts**.
+```bash 
+# Création d'un dossier avec des permissions restreintes
+mkdir /path/to/secure_data
+chmod 700 /path/to/secure_data 
+```
 
-- **Sécurité** : Limiter l'accès aux bind mounts pour **protéger** les données sensibles
-**Gestion des chemins** : Utiliser des **chemins clairs** et **faciles à comprendre** pour prévenir les conflits
-- **Combinaison avec les Volumes** : Utiliser les bind mounts pour les **données temporaires** et les volumes pour les **données persistantes**
+#### 6.5.3 Sécurité des données
+Utiliser des outils comme `dm-crypt` pour **chiffrer** les données sensibles avant de les monter dans Docker.
+
+---
