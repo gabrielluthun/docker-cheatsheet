@@ -164,3 +164,20 @@ Utilité des tags -> assurer le **versionning** de l'image
 - Éviter la répétition de tags comme `latest` pour les images en production afin d'**éviter** les **incohérences**
 
 ---
+## Partager une image Docker
+
+### Pourquoi partager une image Docker ?
+- Collaboration : facilite le travail en équipe 
+- Déploiement : permet un déploiement rapide et cohérent
+
+### Pousser une image
+1. **Se connecter** à Docker Hub : `docker login`
+2. **Taguer** l'image : `docker tag mon-application:v1.0 nom-utilisateur/mon-application:v1.0`
+3. **Pousser** l'image : `docker push nom-utilisateur/mon-application:v1.0`
+
+### Bonnes pratiques pour le partage d'images
+- **Nommer clairement** les images : noms descriptifs et tags
+- Être attentif à la **gestion des permissions**, notamment pour les données sensibles
+- **Optimiser** les images avant de les partager
+
+
