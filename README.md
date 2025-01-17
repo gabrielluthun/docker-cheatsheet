@@ -30,6 +30,9 @@
    5.2. [Bonnes pratiques de partage](#52-bonnes-pratiques-de-partage)  
 
 6. [Stockage et persistance](#6-stockage-et-persistance)  
+    6.1. [Intoduction aux mécanismes de stockage dans Docker](#61-intoduction-aux-mécanismes-de-stockage-dans-docker)  
+    
+    
 
 ---
 
@@ -221,3 +224,21 @@ Utilité des tags -> assurer le **versionning** de l'image
 ---
 
 ## 6. Stockage et persistance
+
+### 6.1. Intoduction aux mécanismes de stockage dans Docker
+### 6.1.1 Types de stockage
+
+- **Volumes** : Stockage persistant **en dehors** du système de fichiers de l'image *(un peu comme des disques durs externes)*
+- **Bind mounts** : Montage d'un répertoire de l'hôte dans le conteneur *(un peu comme des clés USB)*
+- **Tmpfs mounts** : Stockage en mémoire vive de données temporaires ou sensibles *(un peu comme de la RAM)*
+
+### 6.1.2 Différence entre les volumes et les bind mounts
+
+**Volumes** : gérés par **Docker** et offrent une persistance indépendante des conteneurs 
+**Bind mounts** : sont des liens **directs** vers le système de fichiers de l'hôte, utiles pour le développement et les tests.
+
+
+### 6.1.3 Migration de données
+
+- **Volumes** : Facile à **sauvegarder** et **restaurer**, moins sujette aux **pertes de données** et aux **erreurs**
+- **Bind mounts** : Dépendent du système de fichiers de l'hôte en raison de la **gestion intégrée** des fichiers par Docker
