@@ -32,6 +32,7 @@
 6. [Stockage et persistance](#6-stockage-et-persistance)  
     6.1. [Intoduction aux mécanismes de stockage dans Docker](#61-intoduction-aux-mécanismes-de-stockage-dans-docker)  
     6.2. [Les Volumes Docker](#62-les-volumes-docker)
+    6.3. [Les Bind Mounts](#63-les-bind-mounts)
     
 
 ---
