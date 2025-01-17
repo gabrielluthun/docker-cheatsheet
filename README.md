@@ -2,34 +2,34 @@
 
 ## Table des matières
 
-1. [Introduction à Docker](#1-introduction-à-docker)
-   1.1. [Différences Bare Metal vs VM vs Container](#11-différences-bare-metal-vs-vm-vs-container)
-   1.2. [Docker en bref](#12-docker-en-bref)
-   1.3. [Installation rapide (MacOS)](#13-installation-rapide-macos)
+1. [Introduction à Docker](#1-introduction-à-docker)  
+   1.1. [Différences Bare Metal vs VM vs Container](#11-différences-bare-metal-vs-vm-vs-container)  
+   1.2. [Docker en bref](#12-docker-en-bref)  
+   1.3. [Installation rapide (MacOS)](#13-installation-rapide-macos)  
 
-2. [Concepts fondamentaux](#2-concepts-fondamentaux)
-   2.1. [Images et Conteneurs](#21-images-et-conteneurs)
-   2.2. [Docker Hub](#22-docker-hub)
-   2.3. [Bonnes pratiques](#23-bonnes-pratiques)
+2. [Concepts fondamentaux](#2-concepts-fondamentaux)  
+   2.1. [Images et Conteneurs](#21-images-et-conteneurs)  
+   2.2. [Docker Hub](#22-docker-hub)  
+   2.3. [Bonnes pratiques](#23-bonnes-pratiques)  
 
-3. [Commandes Docker](#3-commandes-docker)
-   3.1. [Gestion des conteneurs](#31-gestion-des-conteneurs)
-   3.2. [Gestion des images](#32-gestion-des-images)
-   3.3. [Surveillance et dépannage](#33-surveillance-et-dépannage)
+3. [Commandes Docker](#3-commandes-docker)  
+   3.1. [Gestion des conteneurs](#31-gestion-des-conteneurs)  
+   3.2. [Gestion des images](#32-gestion-des-images)  
+   3.3. [Surveillance et dépannage](#33-surveillance-et-dépannage)  
 
-4. [Création d'images Docker](#4-création-dimages-docker)
-   4.1. [Structure Dockerfile](#41-structure-dockerfile)
-   4.2. [Instructions courantes](#42-instructions-courantes)
-   4.3. [Exemple de Dockerfile](#43-exemple-de-dockerfile)
-   4.4. [Étapes de création](#44-étapes-de-création)
-   4.5. [Optimisation](#45-optimisation)
-   4.6. [Tags et versioning](#46-tags-et-versioning)
+4. [Création d'images Docker](#4-création-dimages-docker)  
+   4.1. [Structure Dockerfile](#41-structure-dockerfile)  
+   4.2. [Instructions courantes](#42-instructions-courantes)  
+   4.3. [Exemple de Dockerfile](#43-exemple-de-dockerfile)  
+   4.4. [Étapes de création](#44-étapes-de-création)  
+   4.5. [Optimisation](#45-optimisation)  
+   4.6. [Tags et versioning](#46-tags-et-versioning)  
 
-5. [Partage et déploiement](#5-partage-et-déploiement)
-   5.1. [Partage d'images](#51-partage-dimages)
-   5.2. [Bonnes pratiques de partage](#52-bonnes-pratiques-de-partage)
+5. [Partage et déploiement](#5-partage-et-déploiement)  
+   5.1. [Partage d'images](#51-partage-dimages)  
+   5.2. [Bonnes pratiques de partage](#52-bonnes-pratiques-de-partage)  
 
-6. [Stockage et persistance](#6-stockage-et-persistance)
+6. [Stockage et persistance](#6-stockage-et-persistance)  
 
 ---
 
