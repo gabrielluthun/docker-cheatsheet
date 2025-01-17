@@ -31,7 +31,7 @@
 
 6. [Stockage et persistance](#6-stockage-et-persistance)  
     6.1. [Intoduction aux mécanismes de stockage dans Docker](#61-intoduction-aux-mécanismes-de-stockage-dans-docker)  
-    
+    6.2. [Les Volumes Docker](#62-les-volumes-docker)
     
 
 ---
@@ -242,3 +242,40 @@ Utilité des tags -> assurer le **versionning** de l'image
 
 - **Volumes** : Facile à **sauvegarder** et **restaurer**, moins sujette aux **pertes de données** et aux **erreurs**
 - **Bind mounts** : Dépendent du système de fichiers de l'hôte en raison de la **gestion intégrée** des fichiers par Docker
+
+### 6.2 Les Volumes Docker
+
+Utilisé pour **partager** des données **entre le conteneur et l'hôte**
+
+#### 6.2.1 Commandes de base
+```bash
+docker volume create <nom-volume>  # Créer un volume
+docker volume ls                   # Lister les volumes
+docker volume inspect <nom-volume> # Inspecter un volume
+docker volume rm <nom-volume>      # Supprimer un volume
+```
+
+#### 6.2.2 Utiliser un volume avec un conteneur
+```bash
+docker run -d -v <mon_volume:/data> <mon_image> # Créer un conteneur avec un volume
+```
+*Note : Le flag `-d` permet de lancer le conteneur en arrière-plan*
+*Le flag `-v` permet de lier un volume sur le répertoire `/data` du conteneur*
+
+#### 6.2.3 Vérifier la taille d'un volume
+```bash
+docker volume inspect <nom-volume> # Chercher le chemin du volume
+du -sh <chemin-volume> # Vérifier la taille du volume
+```
+
+*Pour aller un peu plus loin : dans le `-sh`, `s` permet de résumer la taille totale et `h` permet de l'afficher en format lisible par un humain*
+
+#### 6.2.4 Bonnes pratiques de gestion de volumes
+ - **Sécurité des données** : Chiffrer si nécessaire les données sensibles stockées dans les volumes
+ - **Gestion de l'espace** : Surveiller régulièrement l'espace disque utilisé par les volumes, et supprimer les volumes inutilisés
+
+#### 6.2.5 Nettoyage des volumes
+```bash
+docker volume prune # Supprimer tous les volumes inutilisés
+```
+*Il faut d'abord s'assurer que les volumes à supprimer ne sont plus utilisés par aucun conteneur.*
