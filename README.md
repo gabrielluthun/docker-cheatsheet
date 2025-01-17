@@ -342,9 +342,3 @@ Utiliser des outils comme `dm-crypt` pour **chiffrer** les données sensibles av
 ### 7.1.1 Qu'est-ce que le réseautage ?
 
 Réseautage = permet de communiquer entre eux au sein d'un meêm hôte, ou à travers différents hôtes  
-
-### 7.1.2 Pourquoi le réseautage est important ?
-
-- **Isolation** : Permet de séparer les conteneurs et les applications.
-- **Communication** : Permet de communiquer entre eux.
-- **Sécurité** : Permet de sécuriser les données.
