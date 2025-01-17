@@ -66,6 +66,7 @@ docker exec -it <id/nom> sh # Accéder au shell
 
 ### Gestion des images
 ```bash
+docker build -t <image:tag> .   # Construire une image
 docker images               # Lister les images
 docker pull <image>         # Télécharger une image
 docker push <image>         # Pousser une image
